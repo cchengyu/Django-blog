@@ -12,9 +12,16 @@ urlpatterns = patterns('',
         #r'^$'是正则表达式，$表示行的结束，^$表示匹配到空的字符串
         #include()接受python完整的导入路径，返回应该包括在这个地方的URLconf模块>，方便Django调用
     url(r'^admin/', include(admin.site.urls)),
-    #(?P<name>...)表示把...中匹配到的内容传给name，name作为参数传给后面的函数，^表示行的开头必须为括号中的内容，\d可以匹配一个数字，+表示至少一个字符，\d+表示匹配至少一个数字，/$表示以/结尾
+    #(?P<name>...)表示把...中匹配到的内容传给name，name作为参数传给后面的函数，^表示行的开头必须为括号中的内容，\d可以匹配一个数字，+表示至少一个字符，\d+>表示>匹配至少一个数字，/$表示以/结尾
 #这里表示将传入的一位或者多位数字作为参数传递到views中的detail作为参数
 #name用来命名URL，使URL可以在Django的其他地方使用，特别是在模板中
-    url(r'^(?P<my_args>\d+)/$', views.detail, name='detail'),
-    url(r'^$', views.home),
+    url(r'^$', views.home, name = 'home'),
+    #传入的一位或者多为数字作为参数赋给id，在传递给views中的detail作为参数
+    url(r'^(?P<id>\d+)/$', views.detail, name='detail'),
+    url(r'^archives/$', views.archives, name='archives'),
+    url(r'^aboutme/$', views.about_me, name='about_me'),
+    url(r'tag(?P<tag>\w+)/$', views.search_tag, name = 'search_tag'),
+    url(r'search/$', views.blog_search, name = 'search'),
+    url(r'feed/$', views.RSSFeed(), name = "RSS"),
 )
+
