@@ -17,11 +17,11 @@ Django搭建简易博客
 项目内容
 
 第1节 开发环境以及项目与App
-第2节 Models和Admin以及Views和URL
-第3节 Template和动态URL
-第4节 Markdown和代码高亮
-第5节 归档，AboutMe和标签分类
-第6节 搜索和Readmore以及RSS和分页
+<br>第2节 Models和Admin以及Views和URL
+<br>第3节 Template和动态URL
+<br>第4节 Markdown和代码高亮
+<br>第5节 归档，AboutMe和标签分类
+<br>第6节 搜索和Readmore以及RSS和分页
 
 
 涉及知识（技术栈）
