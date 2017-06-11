@@ -1,14 +1,18 @@
 # Django-blog
 项目目的
+
 通过动手做项目，可以大概了解开发的工作内容，找工作也相对容易一些。
 
 项目名称
+
 Django搭建简易博客
 
 项目背景
+
 本项目介绍如何一步步使用Django开发一个简单的博客Web应用，适用于有Python和Django基础的同学。项目时间：6.1-6.7
 
 项目内容
+
 第1节 开发环境以及项目与App
 第2节 Models和Admin以及Views和URL
 第3节 Template和动态URL
@@ -17,6 +21,7 @@ Django搭建简易博客
 第6节 搜索和Readmore以及RSS和分页
 
 涉及知识（技术栈）
+
 Django框架及Web开发、MVC、Template
 
 MVC：一种软件架构模式，把软件系统分为三个部分：Model（模型）、View（视图）、Controller（控制）
