@@ -15,7 +15,7 @@ class Article(models.Model): #定义一个名为Article的类，从父类models.
      #获取URL并转换成url的表示格式
         def get_absolute_url(self):
             path = reverse('detail', kwargs={'id':self.id}) #reverse用来反解析url以访问其他视图方法，'detail'是要使用的view方法，kwargs={'id':self.id}是传入方法的参数
-            return "http://127.0.0.1:9000%s" % path #返回url
+            return "http://116.62.106.233:80%s" % path #返回url
         #python2使用__unicode__, python3使用__str__
         #定义一个__str__函数，用来创建Article对象的字符串表示形式，一般系统默认使>用<Atricle:Article object>来表示对象，通过这个函数可以告诉系统使用字符串来表示这个对象
         def __str__(self):
