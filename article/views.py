@@ -6,6 +6,7 @@ from datetime import datetime
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.syndication.views import Feed
+import logging
 
 # Create your views here.
 class RSSFeed(Feed): #定义一个名为RSSFeed的类，继承Feed。Feed是一个高等级的聚合框架，用来创造RSS
@@ -36,7 +37,12 @@ def home(request):
         except EmptyPage : #当向page()提供一个有效值，但是那个页面上没有任何对象时抛出
                 post_list = paginator.page(paginator.num_pages) #获取最后一页对象，paginator.num_pages表示页面总数，
         return render(request, 'home.html', {'post_list': post_list})
-
+def log(func): 
+        def wrapper(func):
+                logging.warn("%s is running".%func.__name__)
+                func()
+        return wrapper
+@log
 def detail(request, id): #传入request和id参数
         try: #使用try的错误处理机制
             post = Article.objects.get(id=str(id)) #查询id值为str(id)的Article对象，赋给post变量
