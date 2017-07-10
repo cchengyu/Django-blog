@@ -39,7 +39,7 @@ def home(request):
         return render(request, 'home.html', {'post_list': post_list})
 def log(func): 
         def wrapper(*args,**kwargs):
-                logging.warn("%s is running"%func.__name__)
+                logging.info("%s is running"%func.__name__)
                 return func(*args,**kwargs)
         return wrapper
 @log
