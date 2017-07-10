@@ -39,8 +39,8 @@ def home(request):
         return render(request, 'home.html', {'post_list': post_list})
 def log(func): 
         def wrapper(*args,**kwargs):
-                print('ok')
-                func(*args,**kwargs)
+                logging.warn("%s is running"%func.__name__)
+                return func(*args,**kwargs)
         return wrapper
 @log
 def detail(request, id): #传入request和id参数
