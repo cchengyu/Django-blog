@@ -40,6 +40,7 @@ def home(request):
 def log(func): 
         def wrapper(*args,**kwargs):
                 logging.info("%s is running"%func.__name__)
+                print('%s is being accessed'%func.__name__)
                 return func(*args,**kwargs)
         return wrapper
 @log
