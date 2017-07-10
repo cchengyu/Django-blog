@@ -38,9 +38,9 @@ def home(request):
                 post_list = paginator.page(paginator.num_pages) #获取最后一页对象，paginator.num_pages表示页面总数，
         return render(request, 'home.html', {'post_list': post_list})
 def log(func): 
-        def wrapper(func):
+        def wrapper(*args,**kwargs):
                 logging.warn("%s is running"%func.__name__)
-                func()
+                func(*args,**kwargs)
         return wrapper
 @log
 def detail(request, id): #传入request和id参数
