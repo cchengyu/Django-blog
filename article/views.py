@@ -37,13 +37,13 @@ def home(request):
         except EmptyPage : #当向page()提供一个有效值，但是那个页面上没有任何对象时抛出
                 post_list = paginator.page(paginator.num_pages) #获取最后一页对象，paginator.num_pages表示页面总数，
         return render(request, 'home.html', {'post_list': post_list})
-def log(func): 
-        def wrapper(*args,**kwargs):
-                logging.info("%s is running"%func.__name__)
-                print('%s is being accessed'%func.__name__)
-                return func(*args,**kwargs)
-        return wrapper
-@log
+def log(func): #定义一个函数装饰器
+        def wrapper(*args,**kwargs): #定义一个名为wrapper的函数
+                logging.info("%s is running"%func.__name__) #日志输出
+                print('%s is being accessed'%func.__name__) #打印被访问信息
+                return func(*args,**kwargs) #调用原函数
+        return wrapper #返回一个名为wrapper的函数
+@log #使用装饰器进行装饰detail函数，相当于运行了语句 detail = log(detail)
 def detail(request, id): #传入request和id参数
         try: #使用try的错误处理机制
             post = Article.objects.get(id=str(id)) #查询id值为str(id)的Article对象，赋给post变量
